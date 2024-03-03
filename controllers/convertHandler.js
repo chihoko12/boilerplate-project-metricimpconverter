@@ -52,50 +52,50 @@ function ConvertHandler() {
 
   this.convert = function(initNum, initUnit) {
     // define conversion factors
-    // const conversions = {
-    //   'gal': 3.78541,
-    //   'l': 1/3.78541,
-    //   'lbs': 0.453592,
-    //   'kg': 1/0.453592,
-    //   'mi': 1.60934,
-    //   'km': 1/1.60934
-    // }
+    const conversions = {
+      'gal': 3.78541,
+      'l': 1/3.78541,
+      'lbs': 0.453592,
+      'kg': 1/0.453592,
+      'mi': 1.60934,
+      'km': 1/1.60934
+    }
 
-    // return initNum * conversions[initUnit];
+    return initNum * conversions[initUnit];
 
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
     let result;
 
-    switch (initUnit) {
-      case 'gal':
-        result = initNum * galToL;
-        break;
-      case 'l':
-        result = initNum / galToL;
-        break;
-      case 'lbs':
-        result = initNum * lbsToKg;
-        break;
-      case 'kg':
-        result = initNum / lbsToKg;
-        break;
-      case 'mi':
-        result = initNum * miToKm;
-        break;
-      case 'km':
-        result = initNum / miToKm;
-        break;
-      default:
-        result = null;
-    }
-    return result;
+    // switch (initUnit) {
+    //   case 'gal':
+    //     result = initNum * galToL;
+    //     break;
+    //   case 'l':
+    //     result = initNum / galToL;
+    //     break;
+    //   case 'lbs':
+    //     result = initNum * lbsToKg;
+    //     break;
+    //   case 'kg':
+    //     result = initNum / lbsToKg;
+    //     break;
+    //   case 'mi':
+    //     result = initNum * miToKm;
+    //     break;
+    //   case 'km':
+    //     result = initNum / miToKm;
+    //     break;
+    //   default:
+    //     result = null;
+    // }
+    // return result;
   };
 
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     // construct the result string
-    let result = `${initNum} ${this.spellOutUnit(initunit)} converts to ${returnNum.toFixed(5)} ${this.spellOutUnit(returnUnit)}`;
+    let result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum.toFixed(5)} ${this.spellOutUnit(returnUnit)}`;
     return result;
   };
 
