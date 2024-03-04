@@ -17,6 +17,11 @@ suite('Unit Tests', function(){
   });
 
   // test fractional input
+  test('Fractional input', function () {
+    assert.strictEqual(convertHandler.getNum('1/2kg'), 0.5);
+  });
+
+  // test fractional input with a decimal
   test('Fractional input with a decimal', function() {
     assert.strictEqual(convertHandler.getNum('1.5/2kg'), 0.75);
   });
@@ -41,13 +46,13 @@ suite('Unit Tests', function(){
 
   // test error for an invalid input unit
   test('Error for an invalid input unit', function () {
-    assert.strictEqual(convertHandler.getUnit('10foo'), 'invalid unit');
+    assert.strictEqual(convertHandler.getUnit('10foo'),'invalid unit');
   });
 
   // test correct return unit for each valid input unit
   test('Correct return unit for each valid input unit', function() {
-    assert.strictEqual(convertHandler.getReturnUnit('gal'), 'l');
-    assert.strictEqual(convertHandler.getReturnUnit('l'), 'gal');
+    assert.strictEqual(convertHandler.getReturnUnit('gal'), 'L');
+    assert.strictEqual(convertHandler.getReturnUnit('L'), 'gal');
     assert.strictEqual(convertHandler.getReturnUnit('lbs'), 'kg');
     assert.strictEqual(convertHandler.getReturnUnit('kg'), 'lbs');
     assert.strictEqual(convertHandler.getReturnUnit('mi'), 'km');
@@ -57,7 +62,7 @@ suite('Unit Tests', function(){
   // test spelled-out string unit for each valid input unit
   test('Spelled-out string unit for each valid input unit', function() {
     assert.strictEqual(convertHandler.spellOutUnit('gal'), 'gallons');
-    assert.strictEqual(convertHandler.spellOutUnit('l'), 'liters');
+    assert.strictEqual(convertHandler.spellOutUnit('L'), 'liters');
     assert.strictEqual(convertHandler.spellOutUnit('lbs'), 'pounds');
     assert.strictEqual(convertHandler.spellOutUnit('kg'), 'kilograms');
     assert.strictEqual(convertHandler.spellOutUnit('mi'), 'miles');
@@ -71,7 +76,7 @@ suite('Unit Tests', function(){
 
   // test conversion from L to gal
   test('Convert L to gal', function() {
-    assert.approximately(convertHandler.convert(1,'l'), 0.26417, 0.1);
+    assert.approximately(convertHandler.convert(1,'L'), 0.26417, 0.1);
   });
 
   // test conversion from mi to km
