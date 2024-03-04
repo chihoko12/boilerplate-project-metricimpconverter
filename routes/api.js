@@ -17,13 +17,13 @@ module.exports = function (app) {
 
       // Check for invalid input
       if (initNum === 'invalid number' && initUnit === 'invalid unit') {
-        return res.status(400).json({ error: 'invalid number and unit' });
+        return res.send('invalid number and unit');
       }
       if (initNum === 'invalid number') {
-        return res.status(400).json({ error: 'invalid number' });
+        return res.send('invalid number');
       }
       if (initUnit === 'invalid unit') {
-        return res.status(400).json({ error: 'invalid unit' });
+        return res.send('invalid unit');
       }
 
       // Perform the conversion
